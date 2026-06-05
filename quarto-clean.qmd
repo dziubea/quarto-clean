@@ -1,7 +1,10 @@
 ---
 title: Advanced Numerical Methods for Materials and Manufacturing
 subtitle: Blitz Talk
-format: clean-revealjs
+format:
+  clean-revealjs:
+    theme: dark
+engine: knitr
 author:
   - name: Andrea Dziubek
     orcid: 0000-0002-7276-8145
@@ -11,6 +14,27 @@ date: last-modified
 ---
 
 ## Example slide
+
+## Venn Diagram
+
+```{tikz}
+%| fig-align: center
+\begin{tikzpicture}
+  \fill[red!20]   (90:1.2)  circle (2);
+  \fill[blue!20]  (210:1.2) circle (2);
+  \fill[green!20] (330:1.2) circle (2);
+
+  \draw[thick] (90:1.2)  circle (2);
+  \draw[thick] (210:1.2) circle (2);
+  \draw[thick] (330:1.2) circle (2);
+
+  \node[font=\bfseries] at (90:3.0)  {Physics};
+  \node[font=\bfseries] at (210:3.0) {Math};
+  \node[font=\bfseries] at (330:3.0) {Comp};
+
+  \node at (0,0) {\small CMP};
+\end{tikzpicture}
+```
 
 ### This is a subtitle
 
