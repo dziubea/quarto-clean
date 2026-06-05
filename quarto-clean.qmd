@@ -15,25 +15,34 @@ date: last-modified
 
 ```{tikz}
 %| fig-align: center
-%| fig-width: 20
-%| fig-height: 20
-\usetikzlibrary{backgrounds}
+%| fig-width: 6
+%| fig-height: 6
 \begin{tikzpicture}
-  \fill[red!20]   (90:1.2)  circle (2.5);
-  \fill[blue!20]  (210:1.2) circle (2.5);
-  \fill[green!20] (330:1.2) circle (2.5);
 
-  \draw[thick] (90:1.2)  circle (2.5);
-  \draw[thick] (210:1.2) circle (2.5);
-  \draw[thick] (330:1.2) circle (2.5);
+  % define colors
+  \definecolor{teal}{RGB}{0,128,128}
+  \definecolor{darkgreen}{RGB}{0,100,0}
+  \definecolor{purple}{RGB}{128,0,128}
 
-  \node[font=\bfseries] at (90:3.0)  {Physics};
-  \node[font=\bfseries] at (210:3.0) {Math};
-  \node[font=\bfseries] at (330:3.0) {Comp};
+  % outlines
+  \draw[thick, purple]      (90:1.4)  circle (2.5);
+  \draw[thick, teal] (210:1.4) circle (2.5);
+  \draw[thick, darkgreen]    (330:1.4) circle (2.5);
 
-  \node at (0,0) {\small CMP};
+  % labels inside circles
+  \node[font=\bfseries\large, purple]      at (90:2.6)   {Math};
+  \node[font=\bfseries\large, teal] at (210:2.6)  {Comp};
+  \node[font=\bfseries\large,darkgreen ]    at (330:2.6)  {Phys};
+
+  % smiley face in the center
+  \draw (0,0) circle (0.4);
+  \fill (-.18, 0.1) circle (0.06);
+  \fill ( .18, 0.1) circle (0.06);
+  \draw (-0.2,-0.1) .. controls (-0.2,-0.35) and (0.2,-0.35) .. (0.2,-0.1);
+
 \end{tikzpicture}
 ```
+
 
 ## Example Slide
 
