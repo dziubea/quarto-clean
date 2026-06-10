@@ -1,7 +1,10 @@
 ---
-title: Advanced Numerical Methods for Materials and Manufacturing
-subtitle: SURP Blitz Talk
-format: clean-revealjs
+title: Advanced Numerical Methods for Materials and Manufacturing -- (in 10 minutes?)
+subtitle: Background, Motivation, Path
+format:
+  clean-revealjs:
+    theme: dark
+    css: custom.css
 engine: knitr
 author:
   - name: Andrea Dziubek
@@ -11,14 +14,13 @@ author:
 date: last-modified
 ---
 
-
-## A bit about my work and me
+## {style="margin-top: -40px; font-size: 0.75em"}
 
 [ORCID Profile](https://orcid.org/0000-0002-7276-8145)
 
 - Associate Professor at SUNY Poly
 - GMSPD: organizing workshops (2010 - 2025) 
-- Few *but cool* publications and a book translation (Tensor Analysis)
+- Few *cool* publications including a book translation (Tensor Analysis)
 
 [SUNY Poly Mathematics Stories](https://www.sunypoly.edu/academics/majors-and-programs/mathematics.html)
 
@@ -26,59 +28,246 @@ date: last-modified
 - Undergraduates: MAT 460, SURP, HRUMC, Independent Study, etc. 
 - GMSPD: talks, workshops, conferences, student presentations, etc.
 
-## 
+[Personal Website: Research Interests](https://people.sunypoly.edu/~dziubea/)
 
-[Personal Website](https://people.sunypoly.edu/~dziubea/)
+- Structure Preserving Numerical Methods (Discretizations) = SPD
+- Theoretical Mechanics/Physics and Differential Geometry = GM 
+- [AI and Robotics (CESSAIR, TDAC)]{.bg style="--col: rgb(94, 11, 113)"} 
+    <!--  U.S. Army's Transformation Decision Analysis Center -->
+- Modeling and Simulation of PDEs on Curved Surfaces (Opthalmology)
 
-- Research interests 
-  * Structure Preserving Numerical Methods
-  * Theoretical Mechanics and Differential Geometry
-  * Robotics and AI
-  * Modeling and Simulation of PDEs on Curved Surfaces 
-
-- MAT 460 Student Projects 
-
-[Advice]{.fg style="--col: #e64173"}
-
-- Most important math: Linear Algebra, Calculus III, Numerical Methods
-- Double major in Math and Physics/Engineering (less than a year extra)
-- Minor in Math, Physics, Applied Computational Math, Finance, etc.
+[NGSolve](https://ngsolve.org/) -- an open-source finite element library, with focus on SPD and GM 
+([Laplace](https://docu.ngsolve.org/latest/i-tutorials/wta/poisson.html), [motivation](https://www-users.cse.umn.edu/~arnold/disasters/disasters.html))
+ 
 
 
-## Computational Mathematical Physics = Happiness
+## {style="margin-top: -40px; font-size: 0.75em"}
+
+<h3 style="color: #ff8c00">Structure Preserving Discretizations</h3>
+
+- Addresses two issues in multivariable calculus:
+  - The cross product is only defined in $\mathbb{R}^3$
+  - A conservative vector field has a potential — the converse requires
+    simply connected topology
+- Natural next step after Calculus III: exterior calculus and vector-valued differential forms
+  - De Rham complex, Hodge decomposition, harmonic forms
+- Two main approaches:
+  - Discrete Exterior Calculus (DEC) and Finite Element Exterior Calculus (FEEC)
+
+<h3 style="color: #ff8c00">Geometric Mechanics</h3>
+
+- Classical continuum mechanics vs. vector bundle field theories
+  (Cosserat, micromorphic, ...)
+- Riemannian geometry: mechanics, fluids, materials, EM, GR
+- Riemann-Cartan: materials with defects, plasticity, ECT
+
+[Humble Advice](https://www.sunypoly.edu/academics/majors-and-programs/mathematics.html)
+
+- Most important courses: Linear Algebra, Calculus III, Numerical Methods, plus one more CMP 
+- Why not double major in Math/Physics and Engineering/Science — often less than one year extra
+- Or add a minor in Math, Physics, Applied Computational Math, Finance, ...
+
+
+## Computational Mathematical Physics = Happiness {style="margin-top: -40px; font-size: 0.75em"}
 
 ```{tikz}
 %| fig-align: center
 %| fig-width: 6
 %| fig-height: 6
-\begin{tikzpicture}
+\usetikzlibrary{backgrounds}
+\begin{tikzpicture}[scale=0.6, background rectangle/.style={fill={rgb,255:red,34;green,32;blue,37}}, show background rectangle]
 
-  % define colors
-  \definecolor{teal}{RGB}{0,128,128}
-  \definecolor{darkgreen}{RGB}{0,100,0}
-  \definecolor{purple}{RGB}{128,0,128}
+  % define colors for dark background
+  \definecolor{brightpurple}{RGB}{200,100,255}
+  \definecolor{brightteal}{RGB}{0,210,210}
+  \definecolor{brightgreen}{RGB}{0,200,100}
 
   % outlines
-  \draw[thick, purple]    (90:1.7)  circle (2.5);
-  \draw[thick, teal]      (210:1.7) circle (2.5);
-  \draw[thick, darkgreen] (330:1.7) circle (2.5);
+  \draw[thick, brightpurple] (90:1.7)  circle (2.5);
+  \draw[thick, brightteal]   (210:1.7) circle (2.5);
+  \draw[thick, brightgreen]  (330:1.7) circle (2.5);
 
-  % labels in outer part of each circle
-  \node[font=\bfseries, purple]    at (90:2.7)   {Computational};
-  \node[font=\bfseries, teal]      at (210:2.7)  {Mathematical};
-  \node[font=\bfseries, darkgreen] at (330:2.7)  {Physics};
+  % labels
+  \node[font=\bfseries\small, brightpurple] at (90:2.7)  {Comp};
+  \node[font=\bfseries\small, brightteal]   at (210:2.7) {Math};
+  \node[font=\bfseries\small, brightgreen]  at (330:2.7) {Physics};
 
   % smiley face in the center
-  \draw[gray] (0,0) circle (0.35);
-  \fill[gray] (-.15, 0.08) circle (0.05);
-  \fill[gray] ( .15, 0.08) circle (0.05);
-  \draw[gray] (-0.15,-0.08) .. controls (-0.15,-0.22) and (0.15,-0.22) .. (0.15,-0.08);
-Changes:
+  \draw[yellow, thick] (0,0) circle (0.35);
+  \fill[yellow] (-.15, 0.08) circle (0.05);
+  \fill[yellow] ( .15, 0.08) circle (0.05);
+  \draw[yellow, thick] (-0.15,-0.08) .. controls (-0.15,-0.22) and (0.15,-0.22) .. (0.15,-0.08);
+
+\end{tikzpicture}
+```
+
+## Cosserat (Meta) Material {style="margin-top: -40px; font-size: 0.75em"}
+
+```{tikz}
+%| fig-align: center
+%| fig-width: 8
+%| fig-height: 4
+\usetikzlibrary{arrows.meta, decorations.markings, backgrounds}
+\begin{tikzpicture}[background rectangle/.style={fill={rgb,255:red,34;green,32;blue,37}}, show background rectangle]
+
+  \definecolor{teal}{RGB}{0,210,210}
+  \definecolor{purple}{RGB}{200,100,255}
+  \definecolor{orange}{RGB}{255,160,50}
+  \definecolor{lgray}{RGB}{200,200,200}
+
+  % reference body
+  \draw[thick, lgray] (0,0) rectangle (2.5,2.5);
+  \node[white] at (1.25, 2.8) {\small Reference $\mathcal{B}_0$};
+
+  % material point with triad
+  \fill[white] (1.25,1.25) circle (0.06);
+  \draw[->, thick, teal]   (1.25,1.25) -- (2.0, 1.25) node[right, teal]{\small $\mathbf{e}_1$};
+  \draw[->, thick, purple] (1.25,1.25) -- (1.25, 2.0) node[above, purple]{\small $\mathbf{e}_2$};
+
+  % arrow to deformed body
+  \draw[->, thick, white] (3.0, 1.25) -- (4.2, 1.25) node[midway, above, white]{\small $\varphi$};
+
+  % deformed body
+  \draw[thick, lgray] (4.5,0.2) .. controls (5.0,0) and (6.5,0.5) .. (7.0,1.0)
+                         .. controls (7.5,1.5) and (7.2,2.8) .. (6.5,2.8)
+                         .. controls (5.5,3.0) and (4.5,2.5) .. (4.5,0.2);
+  \node[white] at (5.75, 3.2) {\small Deformed $\mathcal{B}$};
+
+  % deformed point with rotated triad
+  \fill[white] (5.75,1.5) circle (0.06);
+  \draw[->, thick, teal]   (5.75,1.5) -- (6.5,  1.8) node[right, teal]{\small $R\mathbf{e}_1$};
+  \draw[->, thick, purple] (5.75,1.5) -- (5.45, 2) node[above, purple]{\small $R\mathbf{e}_2$};
+
+  % rotation arrow
+  %\draw[->, thick, orange] (5.75,1.5) arc (0:50:0.5);
+  \node[right, orange] at (5, 1) {\small $R \in SO(3)$};
+  
+
+  % displacement vector
+  \draw[->, dashed, orange] (1.25,1.25) .. controls (2.5,0.5) .. (5.75,1.5)
+    node[midway, below, orange]{\small $\mathbf{u}$};
+
+  % label
+  \node[white] at (3.5, -0.5) {$(\mathbf{u}, R)$ : displacement + microrotation};
 
 \end{tikzpicture}
 ```
 
 
+## Finite Element Triple $(K, P_K, \Sigma_K)$ {style="margin-top: -40px; font-size: 0.75em"}
+
+```{tikz}
+%| fig-align: center
+%| fig-width: 8
+%| fig-height: 4
+\usetikzlibrary{backgrounds}
+\begin{tikzpicture}[background rectangle/.style={fill={rgb,255:red,34;green,32;blue,37}}, show background rectangle]
+
+  \definecolor{teal}{RGB}{0,210,210}
+  \definecolor{purple}{RGB}{200,100,255}
+  \definecolor{orange}{RGB}{255,160,50}
+  \definecolor{lgray}{RGB}{180,180,180}
+
+  % domain boundary
+  \draw[thick, white] 
+    (0,0) .. controls (0.5,-0.3) and (3.5,-0.3) .. (4,0)
+          .. controls (4.5,0.5) and (4.3,2.5) .. (4,3)
+          .. controls (3.5,3.3) and (0.5,3.3) .. (0,3)
+          .. controls (-0.3,2.5) and (-0.3,0.5) .. (0,0);
+
+  % triangles - drawn directly with coordinates
+  % row 1
+  \draw[teal, thin, opacity=0.7] (0.4,0.4) -- (1.3,0.2) -- (1.2,1.1) -- cycle;
+  \draw[teal, thin, opacity=0.7] (1.3,0.2) -- (2.3,0.3) -- (1.2,1.1) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.3,0.3) -- (2.2,1.0) -- (1.2,1.1) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.3,0.3) -- (3.3,0.4) -- (2.2,1.0) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.3,0.4) -- (3.8,1.2) -- (3.2,1.2) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.3,0.4) -- (2.2,1.0) -- (3.2,1.2) -- cycle;
+
+  % row 2
+  \draw[teal, thin, opacity=0.7] (0.3,1.3) -- (1.2,1.1) -- (0.4,2.2) -- cycle;
+  \draw[teal, thin, opacity=0.7] (1.2,1.1) -- (1.3,2.1) -- (0.4,2.2) -- cycle;
+  \draw[teal, thin, opacity=0.7] (1.2,1.1) -- (2.2,1.0) -- (1.3,2.1) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.2,1.0) -- (2.2,2.0) -- (1.3,2.1) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.2,1.0) -- (3.2,1.2) -- (2.2,2.0) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.2,1.2) -- (3.1,2.1) -- (2.2,2.0) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.2,1.2) -- (3.7,2.2) -- (3.1,2.1) -- cycle;
+
+  % row 3
+  \draw[teal, thin, opacity=0.7] (0.4,2.2) -- (1.3,2.1) -- (0.5,3.0) -- cycle;
+  \draw[teal, thin, opacity=0.7] (1.3,2.1) -- (1.4,2.9) -- (0.5,3.0) -- cycle;
+  \draw[teal, thin, opacity=0.7] (1.3,2.1) -- (2.2,2.0) -- (1.4,2.9) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.2,2.0) -- (2.3,2.9) -- (1.4,2.9) -- cycle;
+  \draw[teal, thin, opacity=0.7] (2.2,2.0) -- (3.1,2.1) -- (2.3,2.9) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.1,2.1) -- (3.2,2.8) -- (2.3,2.9) -- cycle;
+  \draw[teal, thin, opacity=0.7] (3.1,2.1) -- (3.7,2.2) -- (3.2,2.8) -- cycle;
+
+  % highlight element K
+  \fill[teal, opacity=0.15] (1.2,1.1) -- (2.2,1.0) -- (1.3,2.1) -- cycle;
+  \draw[orange, thick] (1.2,1.1) -- (2.2,1.0) -- (1.3,2.1) -- cycle;
+  \node[orange] at (1.55, 1.45) {\small $K$};
+
+  % nodes - drawn explicitly
+  \fill[white] (0.4,0.4) circle (0.05);
+  \fill[white] (1.3,0.2) circle (0.05);
+  \fill[white] (2.3,0.3) circle (0.05);
+  \fill[white] (3.3,0.4) circle (0.05);
+  \fill[white] (3.8,1.2) circle (0.05);
+  \fill[white] (0.3,1.3) circle (0.05);
+  \fill[white] (1.2,1.1) circle (0.05);
+  \fill[white] (2.2,1.0) circle (0.05);
+  \fill[white] (3.2,1.2) circle (0.05);
+  \fill[white] (3.7,2.2) circle (0.05);
+  \fill[white] (0.4,2.2) circle (0.05);
+  \fill[white] (1.3,2.1) circle (0.05);
+  \fill[white] (2.2,2.0) circle (0.05);
+  \fill[white] (3.1,2.1) circle (0.05);
+  \fill[white] (0.5,3.0) circle (0.05);
+  \fill[white] (1.4,2.9) circle (0.05);
+  \fill[white] (2.3,2.9) circle (0.05);
+  \fill[white] (3.2,2.8) circle (0.05);
+
+  % Ciarlet node labels
+  \node[purple] at (1.05, 1.05) {\small $a_i$};
+  \node[purple] at (2.1,  0.85) {\small $a_j$};
+  \node[purple] at (1.2,  2.25) {\small $a_k$};
+
+  % domain label
+  \node[white] at (2.8, 1.6) {\small $\Omega$};
+
+  % boundary labels
+  \node[lgray] at (-0.6, 1.5) {\small $\Gamma_D$};
+  \node[lgray] at (4.6,  1.5) {\small $\Gamma_N$};
+
+  % fixed BC left
+  \draw[lgray] (-0.1,0.4) -- (-0.4,0.55);
+  \draw[lgray] (-0.1,0.4) -- (-0.4,0.25);
+  \draw[lgray] (-0.1,1.3) -- (-0.4,1.45);
+  \draw[lgray] (-0.1,1.3) -- (-0.4,1.15);
+  \draw[lgray] (-0.1,2.2) -- (-0.4,2.35);
+  \draw[lgray] (-0.1,2.2) -- (-0.4,2.05);
+  \draw[lgray] (-0.1,3.0) -- (-0.4,3.15);
+  \draw[lgray] (-0.1,3.0) -- (-0.4,2.85);
+  \draw[lgray] (-0.4, 0.2) -- (-0.4, 3.1);
+
+  % load arrows right
+  \draw[->, thick, purple] (4.8,0.8) -- (4.1,0.8);
+  \draw[->, thick, purple] (4.8,1.5) -- (4.1,1.5);
+  \draw[->, thick, purple] (4.8,2.2) -- (4.1,2.2);
+  \node[purple] at (5.1, 1.5) {\small $\mathbf{f}$};
+
+  % Ciarlet triple
+  \node[white] at (2.0, -1) {\small $K = \triangle(a_1, a_2, a_3), \quad P_K = P_1(K), \quad \Sigma_K = \{p(a_1),\, p(a_2),\, p(a_3)\}$};
+\end{tikzpicture}
+```
+
+- Domain $\Omega$ with boundary $\Gamma_D$​ (Dirichlet) and $\Gamma_N$ (Neumann), and outer loads $\mathbf{f}$
+
+- Linear triangle $P_1$: element geometry $K$, local function space $P_K$, degrees of freedom $\Sigma_K$
+
+- FE space: assemble local triples $(K, P_K, \Sigma_K)$ and enforce continuity across element boundaries
+
+<!--
 ## Additional theme classes
 
 ### Some extra things you can do with the clean theme
@@ -132,37 +321,4 @@ quarto use template grantmcdermott/quarto-revealjs-clean
 ```{.bash}
 quarto use template grantmcdermott/quarto-revealjs-clean-demo
 ```
-
-
-## Computational Mathematical Physics = Happiness
-
-```{tikz}
-%| fig-align: center
-%| fig-width: 6
-%| fig-height: 6
-\begin{tikzpicture}
-
-  % define colors
-  \definecolor{teal}{RGB}{0,128,128}
-  \definecolor{darkgreen}{RGB}{0,100,0}
-  \definecolor{purple}{RGB}{128,0,128}
-
-  % outlines
-  \draw[thick, purple]    (90:1.7)  circle (2.5);
-  \draw[thick, teal]      (210:1.7) circle (2.5);
-  \draw[thick, darkgreen] (330:1.7) circle (2.5);
-
-  % labels in outer part of each circle
-  \node[font=\bfseries, purple]    at (90:2.7)   {Computational};
-  \node[font=\bfseries, teal]      at (210:2.7)  {Mathematical};
-  \node[font=\bfseries, darkgreen] at (330:2.7)  {Physics};
-
-  % smiley face in the center
-  \draw[gray] (0,0) circle (0.35);
-  \fill[gray] (-.15, 0.08) circle (0.05);
-  \fill[gray] ( .15, 0.08) circle (0.05);
-  \draw[gray] (-0.15,-0.08) .. controls (-0.15,-0.22) and (0.15,-0.22) .. (0.15,-0.08);
-Changes:
-
-\end{tikzpicture}
-```
+-->
