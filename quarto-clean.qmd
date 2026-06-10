@@ -1,17 +1,51 @@
 ---
 title: Advanced Numerical Methods for Materials and Manufacturing
-subtitle: Blitz Talk
+subtitle: SURP Blitz Talk
 format: clean-revealjs
 engine: knitr
 author:
   - name: Andrea Dziubek
     orcid: 0000-0002-7276-8145
     email: dziubea@sunypoly.edu
-    affiliations: Computational Mathematical Physics at SUNY Polytechnic Institute 
+    affiliations: Department of Mathematics at SUNY Polytechnic Institute 
 date: last-modified
 ---
 
-## Venn Diagram
+
+## A bit about my work and me
+
+[ORCID Profile](https://orcid.org/0000-0002-7276-8145)
+
+- Associate Professor at SUNY Poly
+- GMSPD: organizing workshops (2010 - 2025) 
+- Few *but cool* publications and a book translation (Tensor Analysis)
+
+[SUNY Poly Mathematics Stories](https://www.sunypoly.edu/academics/majors-and-programs/mathematics.html)
+
+- TU Berlin / Germany connection
+- Undergraduates: MAT 460, SURP, HRUMC, Independent Study, etc. 
+- GMSPD: talks, workshops, conferences, student presentations, etc.
+
+## 
+
+[Personal Website](https://people.sunypoly.edu/~dziubea/)
+
+- Research interests 
+  * Structure Preserving Numerical Methods
+  * Theoretical Mechanics and Differential Geometry
+  * Robotics and AI
+  * Modeling and Simulation of PDEs on Curved Surfaces 
+
+- MAT 460 Student Projects 
+
+[Advice]{.fg style="--col: #e64173"}
+
+- Most important math: Linear Algebra, Calculus III, Numerical Methods
+- Double major in Math and Physics/Engineering (less than a year extra)
+- Minor in Math, Physics, Applied Computational Math, Finance, etc.
+
+
+## Computational Mathematical Physics = Happiness
 
 ```{tikz}
 %| fig-align: center
@@ -25,40 +59,25 @@ date: last-modified
   \definecolor{purple}{RGB}{128,0,128}
 
   % outlines
-  \draw[thick, purple]      (90:1.4)  circle (2.5);
-  \draw[thick, teal] (210:1.4) circle (2.5);
-  \draw[thick, darkgreen]    (330:1.4) circle (2.5);
+  \draw[thick, purple]    (90:1.7)  circle (2.5);
+  \draw[thick, teal]      (210:1.7) circle (2.5);
+  \draw[thick, darkgreen] (330:1.7) circle (2.5);
 
-  % labels inside circles
-  \node[font=\bfseries\large, purple]      at (90:2.6)   {Math};
-  \node[font=\bfseries\large, teal] at (210:2.6)  {Comp};
-  \node[font=\bfseries\large,darkgreen ]    at (330:2.6)  {Phys};
+  % labels in outer part of each circle
+  \node[font=\bfseries, purple]    at (90:2.7)   {Computational};
+  \node[font=\bfseries, teal]      at (210:2.7)  {Mathematical};
+  \node[font=\bfseries, darkgreen] at (330:2.7)  {Physics};
 
   % smiley face in the center
-  \draw (0,0) circle (0.4);
-  \fill (-.18, 0.1) circle (0.06);
-  \fill ( .18, 0.1) circle (0.06);
-  \draw (-0.2,-0.1) .. controls (-0.2,-0.35) and (0.2,-0.35) .. (0.2,-0.1);
+  \draw[gray] (0,0) circle (0.35);
+  \fill[gray] (-.15, 0.08) circle (0.05);
+  \fill[gray] ( .15, 0.08) circle (0.05);
+  \draw[gray] (-0.15,-0.08) .. controls (-0.15,-0.22) and (0.15,-0.22) .. (0.15,-0.08);
+Changes:
 
 \end{tikzpicture}
 ```
 
-
-## Example Slide
-
-### This is a subtitle
-
-Here we have some text that may run over several lines of the slide frame,
-depending on how long it is.
-
-- first item 
-    - A sub item
-
-Next, we'll brief review some theme-specific components.
-
-- Note that _all_ of the standard Reveal.js
-[features](https://quarto.org/docs/presentations/revealjs/)
-can be used with this theme, even if we don't highlight them here.
 
 ## Additional theme classes
 
@@ -112,4 +131,38 @@ quarto use template grantmcdermott/quarto-revealjs-clean
 
 ```{.bash}
 quarto use template grantmcdermott/quarto-revealjs-clean-demo
+```
+
+
+## Computational Mathematical Physics = Happiness
+
+```{tikz}
+%| fig-align: center
+%| fig-width: 6
+%| fig-height: 6
+\begin{tikzpicture}
+
+  % define colors
+  \definecolor{teal}{RGB}{0,128,128}
+  \definecolor{darkgreen}{RGB}{0,100,0}
+  \definecolor{purple}{RGB}{128,0,128}
+
+  % outlines
+  \draw[thick, purple]    (90:1.7)  circle (2.5);
+  \draw[thick, teal]      (210:1.7) circle (2.5);
+  \draw[thick, darkgreen] (330:1.7) circle (2.5);
+
+  % labels in outer part of each circle
+  \node[font=\bfseries, purple]    at (90:2.7)   {Computational};
+  \node[font=\bfseries, teal]      at (210:2.7)  {Mathematical};
+  \node[font=\bfseries, darkgreen] at (330:2.7)  {Physics};
+
+  % smiley face in the center
+  \draw[gray] (0,0) circle (0.35);
+  \fill[gray] (-.15, 0.08) circle (0.05);
+  \fill[gray] ( .15, 0.08) circle (0.05);
+  \draw[gray] (-0.15,-0.08) .. controls (-0.15,-0.22) and (0.15,-0.22) .. (0.15,-0.08);
+Changes:
+
+\end{tikzpicture}
 ```
