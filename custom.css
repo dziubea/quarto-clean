@@ -1,0 +1,18 @@
+.reveal h2 { color: 
+#ff8c00; }
+
+.reveal ul {
+  margin-top: 0px;
+}
+
+.reveal ul li {
+  margin-bottom: 2px;
+}
+
+.reveal p {
+  margin-bottom: 0px;
+}
+
+.reveal p + ul {
+  margin-top: 0px;
+}
